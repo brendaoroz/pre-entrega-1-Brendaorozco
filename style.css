@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(255, 208, 215);
+}
+
+h1{
+    color: gray;
+    text-align: center;
+}
+
+span{
+    font-weight: bold;
+}
