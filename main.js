@@ -79,7 +79,8 @@ const productos = [{codigo: 1, nombre: 'Gel de limpieza', precio: 8999},
                     {codigo: 2, nombre:'Serum H', precio: 7550},
                     {codigo: 3, nombre:'Crema hidratante', precio: 4950}, 
                     {codigo: 4, nombre:'Crema humectante', precio: 4950},
-                    {codigo: 5, nombre:'Protector solar' , precio: 12500}]
+                    {codigo: 5, nombre:'Protector solar' , precio: 12500},
+                    {codigo: 6, nombre:'Agua termal' , precio: 10500}]
 
 function buscarProducto(codigo) {
     let productoSeleccionado = productos.find((producto)=> producto.codigo === parseInt(codigo))

@@ -1,12 +1,57 @@
-body{
-    background-color: rgb(255, 208, 215);
+*{
+    margin-bottom: 0%;
+    
 }
-
+body{
+    background-color: pink;
+}
 h1{
     color: gray;
     text-align: center;
+    margin-top: 20px;
 }
 
 span{
     font-weight: bold;
+}
+
+main{
+    width: auto;
+    background-color: gray;
+}
+
+.card{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.card-1{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-left: 500px;
+}
+.card-error{
+    height: 200px;
+    width: 350px;
+    background-color: rgba(0, 0, 0, 0.671);
+    color: white;
+    box-shadow: 0 0 2px 2px;
+    align-content: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+h2{
+    text-align: center;
+}
+
+footer{
+    height: 80px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    align-content: center;
+    justify-content: center;
 }
