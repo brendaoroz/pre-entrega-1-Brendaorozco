@@ -241,21 +241,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Mostramos todos los productos al cargar la página
     mostrarProductos(productos);
-});
+
+    // Manejador de eventos para el botón "Comprar"
+    document.addEventListener("click", function(event) {
+        if (event.target.classList.contains("btn-primary")) {
+            event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+
+            const productoNombre = event.target.parentElement.querySelector(".card-title").textContent;
+            carrito.push(productoNombre);
+
+            mostrarMensajeCarrito();
+            guardarCarrito(); // Guardar el carrito en localStorage
+        }
+    });
+
+    // Manejador de eventos para el botón "Ver Carrito"
+    document.getElementById("cartButton").addEventListener("click", function() {
+        window.location.href = "carrito.html";
+    });
+
+        // Limpiamos la lista de carrito antes de actualizarla
+        cartList.innerHTML = '';
+
+        // Mostramos el contenido del carrito
+        carrito.forEach(producto => {
+            const li = document.createElement("li");
+            li.textContent = producto;
+            cartList.appendChild(li);
+        });
+
+        // Mostramos el contenedor del carrito
+        cartContent.style.display = "block";
+    });
+
 
 let carrito = [];
-
-// Manejador de eventos para el botón "Comprar"
-document.addEventListener("click", function(event) {
-    if (event.target.classList.contains("btn-primary")) {
-        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-
-        const productoNombre = event.target.parentElement.querySelector(".card-title").textContent;
-        carrito.push(productoNombre);
-
-        mostrarMensajeCarrito();
-    }
-});
 
 // Función para mostrar el mensaje de producto agregado al carrito
 function mostrarMensajeCarrito() {
@@ -269,11 +289,6 @@ function mostrarMensajeCarrito() {
         cartMessage.style.display = "none"; // Ocultar el mensaje después de unos segundos
     }, 3000);
 }
-
-// Manejador de eventos para el botón "Ver Carrito"
-document.getElementById("cartButton").addEventListener("click", function() {
-    alert("Contenido del carrito: " + carrito.join(", "));
-});
 
 // Verificamos si hay datos almacenados en localStorage al cargar la página
 document.addEventListener("DOMContentLoaded", function() {
@@ -288,47 +303,71 @@ function guardarCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-// Manejador de eventos para el botón "Comprar"
-document.addEventListener("click", function(event) {
-    if (event.target.classList.contains("btn-primary")) {
-        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-
-        const productoNombre = event.target.parentElement.querySelector(".card-title").textContent;
-        carrito.push(productoNombre);
-
-        mostrarMensajeCarrito();
-        guardarCarrito(); // Guardar el carrito en localStorage
-    }
-});
-
-// Manejador de eventos para el botón "Ver Carrito"
-document.getElementById("cartButton").addEventListener("click", function() {
-    const cartContent = document.getElementById("cartContent");
+document.addEventListener("DOMContentLoaded", function() {
     const cartList = document.getElementById("cartList");
+    const totalAmount = document.getElementById("totalAmount");
+    const continueShoppingBtn = document.getElementById("continueShoppingBtn");
+    const checkoutBtn = document.getElementById("checkoutBtn");
+    
+    // Array para almacenar los productos seleccionados
+    let cartItems = [];
 
-    // Limpiamos la lista de carrito antes de actualizarla
-    cartList.innerHTML = '';
+    // Función para agregar un producto al carrito
+    function addToCart(product) {
+        cartItems.push(product);
+        updateCart();
+    }
 
-    // Mostramos el contenido del carrito
-    carrito.forEach(producto => {
-        const li = document.createElement("li");
-        li.textContent = producto;
-        cartList.appendChild(li);
+    // Función para actualizar la visualización del carrito
+    function updateCart() {
+        // Limpiamos la lista de productos en el carrito
+        cartList.innerHTML = "";
+        
+        // Calculamos el total de la compra
+        let total = 0;
+
+        // Iteramos sobre los productos en el carrito
+        cartItems.forEach(item => {
+            // Creamos un nuevo elemento de lista para cada producto
+            const listItem = document.createElement("li");
+            listItem.textContent = `${item.nombre}: $${item.precio.toFixed(2)}`;
+            
+            // Agregamos el producto a la lista
+            cartList.appendChild(listItem);
+
+            // Sumamos el precio del producto al total
+            total += item.precio;
+        });
+
+        // Actualizamos el total de la compra en la página
+        totalAmount.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    // Evento para el botón de "Seguir Comprando"
+    document.getElementById("continueShoppingBtn").addEventListener("click", function() {
+        window.location.href = "index.html"; // Cambia "index.html" por la ruta correcta de tu página principal
     });
 
-    // Mostramos el contenedor del carrito
-    cartContent.style.display = "block";
+    // Evento para el botón de "Finalizar Compra"
+    checkoutBtn.addEventListener("click", function() {
+        // Aquí puedes agregar la lógica para finalizar la compra, como procesar el pago, etc.
+        alert("Procesando pago...");
+    });
+
+    // Ejemplo de productos (puedes obtener estos datos de una fuente externa, como una API)
+    const productos = [
+        { nombre: 'Producto 1', precio: 10 },
+        { nombre: 'Producto 2', precio: 15 },
+        { nombre: 'Producto 3', precio: 20 }
+    ];
+
+    // Agregamos un evento de clic a cada producto para agregarlo al carrito
+    productos.forEach(producto => {
+        const productBtn = document.createElement("button");
+        productBtn.textContent = `Agregar ${producto.nombre} - $${producto.precio.toFixed(2)}`;
+        productBtn.addEventListener("click", function() {
+            addToCart(producto);
+        });
+        document.body.appendChild(productBtn); // Cambia document.body por el contenedor adecuado de los productos
+    });
 });
-
-// Función para mostrar el mensaje de producto agregado al carrito
-function mostrarMensajeCarrito() {
-    const cartMessage = document.getElementById("cartMessage");
-    const cartButton = document.getElementById("cartButton");
-
-    cartMessage.style.display = "block"; // Mostrar el mensaje
-    cartButton.style.display = "inline-block"; // Mostrar el botón de carrito
-
-    setTimeout(function() {
-        cartMessage.style.display = "none"; // Ocultar el mensaje después de unos segundos
-    }, 3000);
-}

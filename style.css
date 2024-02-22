@@ -79,3 +79,51 @@ footer{
     align-content: center;
     justify-content: center;
 }
+
+#cartContainer {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#cartList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cartList li {
+    margin-bottom: 10px;
+}
+
+#totalAmount {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#continueShoppingBtn,
+#checkoutBtn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#continueShoppingBtn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#checkoutBtn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+#continueShoppingBtn:hover,
+#checkoutBtn:hover {
+    background-color: #0056b3;
+}
+
+#checkoutBtn:hover {
+    background-color: #218838;
+}
