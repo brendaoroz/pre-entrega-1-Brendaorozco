@@ -2,13 +2,11 @@
     margin-bottom: 0%;
     
 }
-body{
-    background-color: pink;
-}
+
 h1{
-    color: gray;
+    color: white;
     text-align: center;
-    margin-top: 20px;
+    height: 80px;
 }
 
 span{
@@ -17,13 +15,31 @@ span{
 
 main{
     width: auto;
-    background-color: gray;
+    background-color: #00bcd4;
 }
 
-.busqueda{
-
-align-items: center;
+.busqueda {
+    width: 100%; 
+    max-width: 500px; 
+    margin: 0 auto; 
+    display: block; 
 }
+
+
+body {
+    background-color: #00bcd4;
+}
+
+header, footer {
+    background-color: #6b3c70a8; 
+    color: #ffffff; 
+}
+
+
+#checkoutBtn {
+    background-color: #00bcd4; 
+}
+
 
 .card{
     margin-bottom: 10px;
@@ -54,20 +70,20 @@ h2{
 
 
 #cartMessage {
-    position: fixed; /* Hacer que el elemento esté fijo en la ventana del navegador */
-    top: 20px; /* Distancia desde arriba */
-    left: 50%; /* Centrar horizontalmente */
-    transform: translateX(-50%); /* Centrar horizontalmente */
-    z-index: 999; /* Asegurarse de que esté por encima de otros elementos */
+    position: fixed; 
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 999; 
 }
 
-  /* Estilos para el botón de carrito */
+
 #cartButton {
-    position: fixed; /* Hacer que el elemento esté fijo en la ventana del navegador */
-    top: 70px; /* Distancia desde arriba */
-    left: 50%; /* Centrar horizontalmente */
-    transform: translateX(-50%); /* Centrar horizontalmente */
-    z-index: 999; /* Asegurarse de que esté por encima de otros elementos */
+    position: fixed; 
+    top: 70px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 999;
 }
 
 footer{
@@ -110,12 +126,12 @@ footer{
 }
 
 #continueShoppingBtn {
-    background-color: #007bff;
+    background-color: rgb(114, 5, 114);
     color: #fff;
 }
 
 #checkoutBtn {
-    background-color: #28a745;
+    background-color: rgb(114, 5, 114);
     color: #fff;
 }
 
@@ -125,5 +141,5 @@ footer{
 }
 
 #checkoutBtn:hover {
-    background-color: #218838;
+    background-color: #0056b3;
 }
