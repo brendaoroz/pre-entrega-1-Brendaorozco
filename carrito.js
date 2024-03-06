@@ -34,27 +34,21 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("Procesando pago...");
     });
 
-    const productos = [
-        { nombre: 'Producto 1', precio: 10 },
-        { nombre: 'Producto 2', precio: 15 },
-        { nombre: 'Producto 3', precio: 20 }
-    ];
 
-    productos.forEach(producto => {
-        const productBtn = document.createElement("button");
-        productBtn.textContent = `Agregar ${producto.nombre} - $${producto.precio.toFixed(2)}`;
-        productBtn.addEventListener("click", function() {
+    const addToCartButtons = document.querySelectorAll(".addToCartBtn");
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const productoNombre = button.parentElement.querySelector(".card-title").textContent;
+            const productoPrecio = parseFloat(button.parentElement.querySelector(".precio").textContent);
+            const producto = { nombre: productoNombre, precio: productoPrecio };
             addToCart(producto);
         });
-        document.body.appendChild(productBtn);
     });
 });
-
 
 document.addEventListener("DOMContentLoaded", function() {
     mostrarProductosEnCarrito();
 });
-
 
 function mostrarProductosEnCarrito() {
     const cartList = document.getElementById("cartList");
