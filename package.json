@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "json-loader": "^0.5.7",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}

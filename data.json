@@ -1,0 +1,10 @@
+const productos = [
+    { nombre: 'Gel de limpieza', descripcion: 'Gel de limpieza apto para todo tipo de piel.', precio: 8999, imagen: "gel_aveno1.jpg" },
+    { nombre: 'Serum H', descripcion: 'Serum ultra hidratante concentrado.', precio: 12500 },
+    { nombre: 'Crema hidratante', descripcion: 'Crema hidratante Allday', precio: 11000},
+    { nombre: 'Crema humectante', descripcion: 'Crema humectante con proteccion UV', precio: 11000 },
+    { nombre: 'Protector solar', descripcion: 'Protector solar FPS 50 con toque seco', precio: 15900 },
+    { nombre: 'Agua termal', descripcion: 'Agua termal volcánica', precio: 9500 }
+];
+
+
